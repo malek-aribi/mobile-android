@@ -22,9 +22,11 @@ jobs:
       run: npm install
 
     - name: Build and Test
-      run: npm run build
+      run: |
+        npm run build
+        npm test
 
     - name: Deploy to Expo
-      run: eas build -p android
+      run: npx expo build:android
       env:
         EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
