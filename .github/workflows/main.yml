@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Authenticate with Expo
-        run: expo login -u $EXPO_CLI_USERNAME -p $EXPO_CLI_PASSWORD
+        run: expo login -u israasahbi@gmail.com -p israisra@
 
       - name: Build Android APK
         run: expo build:android --non-interactive
