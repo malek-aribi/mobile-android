@@ -28,8 +28,7 @@ jobs:
         run: npm install
 
       - name: Login to Expo EAS
-        run: eas login -u ${{ secrets.EXPO_CLI_USERNAME }} -p ${{ secrets.EXPO_CLI_PASSWORD }}
-
+        run: eas login -u israasahbi@gmail.com -p israisra@
       - name: Build Android APK
         run: eas build -p android
 
