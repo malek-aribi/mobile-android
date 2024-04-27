@@ -10,21 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-      - name: Install Dependencies
-        run: npm install
+    - name: Install Dependencies
+      run: npm install
 
-      - name: Build and Test
-        run: npm test
+    - name: Build and Test
+      run: npm run build && npm test
 
-      - name: Deploy to Expo with EAS
-        run: eas build -p android
-        env:
-         EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
+    - name: Build APK with Expo
+      run: npx expo build:android
+      env:
+        EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
+
+   
