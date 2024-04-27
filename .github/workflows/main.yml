@@ -25,7 +25,7 @@ jobs:
       run: npm run build 
 
     - name: Build APK with Expo
-      run: npx expo build:android
+      run: eas build -p android
       env:
         EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
 
