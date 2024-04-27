@@ -24,7 +24,9 @@ jobs:
       - name: Build and Test
         run: npm test
 
-      - name: Deploy to Expo
-        run: npx expo build:android
+      - name: Deploy to Expo with EAS
+        run: eas build -p android
         env:
-          EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
+          EAS_BUILD_PROFILE: 'android'
+          EAS_BUILD_TARGET: 'managed'
+          timeout-minutes: 60
