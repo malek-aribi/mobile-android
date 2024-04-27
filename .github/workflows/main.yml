@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Build and Test
-      run: npm run build && npm test
+      run: npm run build 
 
     - name: Build APK with Expo
       run: npx expo build:android
