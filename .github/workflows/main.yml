@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Build Android APK
-        run: expo build:android --non-interactive --no-warnings
+        run: expo build:android --non-interactive
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
