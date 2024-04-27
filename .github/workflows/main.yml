@@ -24,8 +24,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Authenticate with Expo
+        run: expo login -u $EXPO_CLI_USERNAME -p $EXPO_CLI_PASSWORD
+
       - name: Build Android APK
-        run: expo build:android --non-interactive --no-warnings
+        run: expo build:android --non-interactive
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v2
