@@ -18,26 +18,12 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install Expo CLI
-        run: npm install -g expo-cli
-
-      - name: Install EAS CLI
-        run: npm install -g eas-cli
-
       - name: Install Dependencies
-        run: npm install
-
-      - name: Login to Expo EAS
-        env:
-          EXPO_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
-          EXPO_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
-        run: eas login --non-interactive --username $EXPO_USERNAME --password $EXPO_PASSWORD
+        run: npm install && npm install -g eas-cli
 
       - name: Build Android APK
-        run: eas build -p android
+        run: fastlane build 
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: android-build
-          path: .
+        run: fastlane deploy
+        
