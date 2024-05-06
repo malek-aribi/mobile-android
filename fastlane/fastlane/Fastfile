@@ -18,6 +18,6 @@ default_platform(:android)
 platform :android do
   desc "Build APK"
   lane :build do
-    sh "eas build -p android"
+    sh "npm run build"
   end
 end
