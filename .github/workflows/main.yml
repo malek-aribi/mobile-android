@@ -21,15 +21,22 @@ jobs:
       - name: Install Dependencies
         run: npm install && npm install -g eas-cli
 
-      - name: Set Expo CLI token
-        run: echo "export EXPO_CLI_TOKEN=${{ secrets.EXPO_CLI_TOKEN }}" >> $GITHUB_ENV
+      - name: Set Expo CLI credentials
+        run: |
+          echo "EXPO_CLI_USERNAME=${{ secrets.EXPO_CLI_USERNAME }}" >> $GITHUB_ENV
+          echo "EXPO_CLI_PASSWORD=${{ secrets.EXPO_CLI_PASSWORD }}" >> $GITHUB_ENV
       - name: Login to Expo with EAS
-        run: npx eas-cli login
-
-      - name: Build with Fastlane 
+        run: npx eas-cli login --username $EXPO_CLI_USERNAME --password $EXPO_CLI_PASSWORD
+      - name: Build with Fastlane
         run: |
           cd fastlane
-          fastlane build 
+          fastlane build
+
+
+
+
+
+
 
       
         
