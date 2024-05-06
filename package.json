@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "npx expo start",
-    "android": "npx expo start --android",
-    "ios": "npx expo start --ios",
-    "web": "npx expo start --web",
-    "eject": "npx expo eject"
-  
-  },
+  "start": "expo start",
+  "android": "expo start --android",
+  "ios": "expo start --ios",
+  "web": "expo start --web",
+  "eject": "expo eject",
+  "build": "eas build -p android"
+},
+
   "dependencies": {
     "expo": "~50.0.14",
     "expo-status-bar": "~1.11.1",
