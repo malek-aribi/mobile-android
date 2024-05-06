@@ -21,8 +21,10 @@ jobs:
       - name: Install Dependencies
         run: npm install && npm install -g eas-cli
 
-      - name: Build Android APK
-        run: fastlane build 
+      - name: Build with Fastlane 
+        run: |
+          cd fastlane
+          fastlane build 
 
       
         
