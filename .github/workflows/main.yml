@@ -24,6 +24,5 @@ jobs:
       - name: Build Android APK
         run: fastlane build 
 
-      - name: Upload Artifact
-        run: fastlane deploy
+      
         
