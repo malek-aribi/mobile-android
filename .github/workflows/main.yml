@@ -25,8 +25,7 @@ jobs:
         run: |
          echo "${{ secrets.EXPO_CLI_USERNAME }}" | npx eas-cli login --stdin
          echo "${{ secrets.EXPO_CLI_PASSWORD }}" | npx eas-cli login --stdin
-      - name: Login to Expo with EAS
-        run: npx eas-cli login --username $EXPO_CLI_USERNAME --password $EXPO_CLI_PASSWORD
+    
       - name: Build with Fastlane
         run: |
           cd fastlane
