@@ -13,11 +13,9 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-default_platform(:android)
-
 platform :android do
-  desc "Build APK"
-  lane :build do
-    sh "npm run build"
+  desc "Build the Android app"
+  lane :build_android do
+    # Commandes Fastlane pour construire l'application Android
   end
 end
