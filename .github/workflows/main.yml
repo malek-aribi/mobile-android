@@ -19,12 +19,7 @@ jobs:
           node-version: '14'
 
       - name: Install Dependencies
-        run: npm install && npm install -g eas-cli
-
-      - name: Set Expo CLI credentials
-        run: |
-         echo "${{ secrets.EXPO_CLI_USERNAME }}" | npx eas-cli login --stdin
-         echo "${{ secrets.EXPO_CLI_PASSWORD }}" | npx eas-cli login --stdin
+        run: npm install 
     
       - name: Build with Fastlane
         run: |
