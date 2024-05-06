@@ -21,13 +21,8 @@ jobs:
       - name: Install Dependencies
         run: npm install 
 
-      - name: Install Fastlane
-        run: gem install fastlane -NV
-    
-      - name: Build with Fastlane
-        run: |
-          cd fastlane
-          fastlane build
+      - name: Run build
+        run: npm run build
 
 
 
