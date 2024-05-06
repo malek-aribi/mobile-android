@@ -22,7 +22,7 @@ jobs:
         run: npm install && npm install -g eas-cli
 
       - name: Login to Expo with EAS
-        run: eas login --username ${{ secrets.EXPO_CLI_USERNAME }} --password ${{ secrets.EXPO_CLI_PASSWORD }}
+        run: npx eas-cli login --token ${{ secrets.EXPO_CLI_TOKEN }}
 
       - name: Build with Fastlane 
         run: |
