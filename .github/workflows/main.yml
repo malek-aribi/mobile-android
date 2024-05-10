@@ -16,6 +16,7 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install -g expo-cli
+        npm install -g eas-cli
         npm install
 
     - name: Login to Expo CLI
