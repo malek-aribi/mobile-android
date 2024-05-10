@@ -1,19 +1,39 @@
-name: Build and Deploy
+name: Build and Deploy React Native Expo App
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]  # Trigger the workflow on push events to the main branch
+
+
 jobs:
-  build_android:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest  # The type of runner that the job will run on
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - name: Install Dependencies
-        run: npm install
-      - name: Build Android with Fastlane
-        run: fastlane build_android
+    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
+    - name: Install Dependencies
+      run: |
+        npm install -g expo-cli
+        npm install
+
+    - name: Login to Expo CLI
+      env:
+        EXPO_CLI_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
+        EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
+      run: expo login --non-interactive --username $EXPO_CLI_USERNAME --password $EXPO_CLI_PASSWORD
+
+    - name: Build Project with Expo
+      run: eas build -p android --non-interactive
+
+    - name: Download Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: app
+        path: ./apk 
+    - name: Upload APK to Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: app
+        path: ./apk 
